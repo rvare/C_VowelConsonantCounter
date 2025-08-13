@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <stddef.h>
 #include <string.h>
 #include <uchar.h>
@@ -35,6 +36,7 @@ int main(int argc, char *argv[]) {
 }
 
 int check_vowel(char c) {
+	c = tolower(c);
 	switch(c) {
 		case 'a':
 		case 'e':
@@ -48,6 +50,7 @@ int check_vowel(char c) {
 }
 
 int check_consonant(char c) {
+	c = tolower(c);
 	if (c >= 'b' && c <= 'd')
 		return 1;
 	else if (c >= 'f' && c <= 'h')
