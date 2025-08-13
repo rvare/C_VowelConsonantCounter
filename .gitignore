@@ -1,4 +1,5 @@
 *.swp
 *.o
+*.exe
 /build
 /test_files
