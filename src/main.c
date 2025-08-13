@@ -11,8 +11,8 @@ int check_consonant(char c);
 
 int main(int argc, char *argv[]) {
 	// FILE *file = fopen("../test_files/test1.txt", "r");
-	char c;
-	int is_vow = 0, is_con = 0, vow_count = 0, con_count = 0;
+	char c, prev_char = '\0';
+	int is_vow = 0, is_con = 0, vow_count = 0, con_count = 0, vv = 0, vc = 0, cv = 0, cc = 0;
 
 	while (EOF != (c=getchar())) {
 		if ('\n' == c) continue;
@@ -28,9 +28,24 @@ int main(int argc, char *argv[]) {
 		else {
 			printf("%c is neither\n", c);
 		}
+
+		if (check_vowel(prev_char) && check_vowel(c)) {
+			++vv;
+		}
+		else if (check_vowel(prev_char) && check_consonant(c)) {
+			++vc;
+		}
+		else if (check_consonant(prev_char) && check_vowel(c)) {
+			++cv;
+		}
+		else if (check_consonant(prev_char) && check_consonant(c)) {
+			++cc;
+		}
+		prev_char = c;
 	}
 
 	printf("# vowels: %d\t# consonants: %d\n", vow_count, con_count);
+	printf("vv: %d\tvc: %d\tcv: %d\tcc: %d\n", vv, vc, cv, cc);
 
 	return EXIT_SUCCESS;
 }
@@ -64,3 +79,4 @@ int check_consonant(char c) {
 	else
 		return 0;
 }
+
