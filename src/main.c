@@ -6,14 +6,13 @@
 #include <uchar.h>
 #include <assert.h>
 
-int check_consonant(char c);
-
 int main(int argc, char *argv[]) {
 	// FILE *file = fopen("../test_files/test1.txt", "r");
 	char c, prev_char = '\0';
 	int is_vow = 0, is_con = 0, vow_count = 0, con_count = 0, vv = 0, vc = 0, cv = 0, cc = 0;
 
-	extern int check_vowel(char c);
+	extern int check_vowel(char);
+	extern int check_consonant(char);
 
 	while (EOF != (c=getchar())) {
 		if (check_vowel(c)) {
@@ -48,21 +47,5 @@ int main(int argc, char *argv[]) {
 	printf("vv: %d\tvc: %d\tcv: %d\tcc: %d\n", vv, vc, cv, cc);
 
 	return EXIT_SUCCESS;
-}
-
-int check_consonant(char c) {
-	c = tolower(c);
-	if (c >= 'b' && c <= 'd')
-		return 1;
-	else if (c >= 'f' && c <= 'h')
-		return 1;
-	else if (c >= 'j' && c <= 'n')
-		return 1;
-	else if (c >= 'p' && c <= 't')
-		return 1;
-	else if (c >= 'v' && c <= 'z')
-		return 1;
-	else
-		return 0;
 }
 
