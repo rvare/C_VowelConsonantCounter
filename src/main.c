@@ -6,7 +6,6 @@
 #include <uchar.h>
 #include <assert.h>
 
-int check_vowel(char c);
 int check_consonant(char c);
 
 int main(int argc, char *argv[]) {
@@ -14,9 +13,9 @@ int main(int argc, char *argv[]) {
 	char c, prev_char = '\0';
 	int is_vow = 0, is_con = 0, vow_count = 0, con_count = 0, vv = 0, vc = 0, cv = 0, cc = 0;
 
+	extern int check_vowel(char c);
+
 	while (EOF != (c=getchar())) {
-		if ('\n' == c) continue;
-		is_vow = check_vowel(c);
 		if (check_vowel(c)) {
 			printf("%c is a vowel\n", c);
 			++vow_count;
@@ -27,6 +26,7 @@ int main(int argc, char *argv[]) {
 		}
 		else {
 			printf("%c is neither\n", c);
+			continue;
 		}
 
 		if (check_vowel(prev_char) && check_vowel(c)) {
@@ -48,20 +48,6 @@ int main(int argc, char *argv[]) {
 	printf("vv: %d\tvc: %d\tcv: %d\tcc: %d\n", vv, vc, cv, cc);
 
 	return EXIT_SUCCESS;
-}
-
-int check_vowel(char c) {
-	c = tolower(c);
-	switch(c) {
-		case 'a':
-		case 'e':
-		case 'i':
-		case 'o':
-		case 'u':
-			return 1;
-		default:
-			return 0;
-	}
 }
 
 int check_consonant(char c) {
