@@ -4,7 +4,7 @@
 Purpose: checks if the character c is a consonant.
 Precondition: c is a char.
 Postcondition: Return true (1) if consonant otherwise false (0).
-Invariant: c
+Invariant: None
 */
 
 int check_consonant(char c) {
