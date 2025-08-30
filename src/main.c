@@ -9,22 +9,18 @@
 #include "./functions.h"
 
 int main(int argc, char *argv[]) {
-	// FILE *file = fopen("../test_files/test1.txt", "r");
 	char c, prev_char = '\0';
 	int is_vow = 0, is_con = 0, vow_count = 0, con_count = 0,
 		vv = 0, vc = 0, cv = 0, cc = 0;
 
 	while (EOF != (c=getchar())) {
 		if (check_vowel(c)) {
-			printf("%c is a vowel\n", c);
 			++vow_count;
 		}
 		else if (check_consonant(c)) {
-			printf("%c is a consonant\n", c);
 			++con_count;
 		}
-		else {
-			printf("%c is neither\n", c);
+		else { // Neither case
 			continue;
 		}
 
