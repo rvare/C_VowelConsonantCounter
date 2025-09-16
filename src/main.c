@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
 	fclose(file_ptr);
 
-	printf("\n# vowels: %d\t# consonants: %d\n", vow_count, con_count);
+	printf("\nTotal characters: %d\n#vowels: %d\t#consonants: %d\n", vow_count+con_count, vow_count, con_count);
 	printf("vv: %d\tvc: %d\tcv: %d\tcc: %d\n", vv, vc, cv, cc);
 
 	return 0;
