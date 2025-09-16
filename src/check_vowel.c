@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdbool.h>
 
 /*
 Purpose: Checks if the char c is a vowel.
@@ -7,7 +8,7 @@ Postcondition: Return true (1) if vowel, else false (0).
 Invariant: None
 */
 
-int check_vowel(char c) {
+bool check_vowel(char c) {
 	c = tolower(c);
 	switch(c) {
 		case 'a':
@@ -15,8 +16,8 @@ int check_vowel(char c) {
 		case 'i':
 		case 'o':
 		case 'u':
-			return 1;
+			return true;
 		default:
-			return 0;
+			return false;
 	}
 }

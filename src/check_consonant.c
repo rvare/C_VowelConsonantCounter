@@ -1,4 +1,5 @@
 #include <ctype.h>
+#include <stdbool.h>
 
 /*
 Purpose: checks if the character c is a consonant.
@@ -7,18 +8,18 @@ Postcondition: Return true (1) if consonant otherwise false (0).
 Invariant: None.
 */
 
-int check_consonant(char c) {
+bool check_consonant(char c) {
 	c = tolower(c);
 	if (c >= 'b' && c <= 'd')
-		return 1;
+		return true;
 	else if (c >= 'f' && c <= 'h')
-		return 1;
+		return true;
 	else if (c >= 'j' && c <= 'n')
-		return 1;
+		return true;
 	else if (c >= 'p' && c <= 't')
-		return 1;
+		return true;
 	else if (c >= 'v' && c <= 'z')
-		return 1;
+		return true;
 	else
-		return 0;
+		return false;
 }
