@@ -11,7 +11,7 @@
 int main(int argc, char *argv[]) {
 	FILE *file_ptr = NULL;
 	register int token = '\0';
-	char prev_char = '\0';
+	register char prev_token = '\0';
 	unsigned int vow_count = 0, con_count = 0,
 				 vv = 0, vc = 0,
 				 cv = 0, cc = 0;
@@ -35,16 +35,16 @@ int main(int argc, char *argv[]) {
 		else // Neither case
 			continue;
 
-		if (check_vowel(prev_char) && check_vowel(token))
+		if (check_vowel(prev_token) && check_vowel(token))
 			++vv;
-		else if (check_vowel(prev_char) && check_consonant(token))
+		else if (check_vowel(prev_token) && check_consonant(token))
 			++vc;
-		else if (check_consonant(prev_char) && check_vowel(token))
+		else if (check_consonant(prev_token) && check_vowel(token))
 			++cv;
-		else if (check_consonant(prev_char) && check_consonant(token))
+		else if (check_consonant(prev_token) && check_consonant(token))
 			++cc;
 
-		prev_char = token;
+		prev_token = token;
 	}
 
 	if (ferror(file_ptr)) {
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
 	fclose(file_ptr);
 
-	printf("# vowels: %d\t# consonants: %d\n", vow_count, con_count);
+	printf("\n# vowels: %d\t# consonants: %d\n", vow_count, con_count);
 	printf("vv: %d\tvc: %d\tcv: %d\tcc: %d\n", vv, vc, cv, cc);
 
 	return 0;
